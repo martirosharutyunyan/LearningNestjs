@@ -34,4 +34,12 @@ export class AppService {
     console.log(userEntity)
     return {first:"", id:46, last:"das"}
   } 
+
+  async deleteUser(id: string): Promise<Users> {
+    const userEntity = await this.userRepository.createQueryBuilder()
+      .delete()
+      .where('id = :id', { id })
+      .execute()
+    return {first:"", id:46, last:"das"}
+  }
 }
